@@ -1,0 +1,4 @@
+# gitignore file for aiap batch 14
+
+# Ignore data folders and .db files within
+data/
