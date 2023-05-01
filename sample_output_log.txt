@@ -1,0 +1,239 @@
+Hello, welcome to Fishy & Co. Rain Predictor (Beta)!
+Please wait while we get the system loaded.
+Loading Data...
+
+Data loading completed.
+
+Raw Dataset:
+The dataframe has a total of 12997 rows and 21 columns.
+Count of duplicated rows: 1182
+Presence of rows with missing values: True
+==================================================
+
+Processed full data before train-test splitting Dataset:
+The dataframe has a total of 10783 rows and 8 columns.
+Count of duplicated rows: 25
+Presence of rows with missing values: False
+==================================================
+
+Processed class-balanced data before train-test splitting Dataset:
+The dataframe has a total of 4936 rows and 8 columns.
+Count of duplicated rows: 373
+Presence of rows with missing values: False
+==================================================
+
+Splitting Test and training data...
+Number of data in training set: 8626
+Number of data in testing set: 2157
+
+Splitting Test and training data...
+Number of data in training set: 3948
+Number of data in testing set: 988
+
+==================================================
+Thank you for your patience. Fishy & Co. Rain Predictor v1.0 is ready!
+
+What is the cost per fishing trip? ($'000):
+What is the revenue (gross) from the haul per fishing trip? ($'000):
+Based on your input that each trip cost $2,000 and will make us $4,000,
+each successful fishing trip will make us a profit of $2,000.
+
+What do you wish to pick the model based on? (Select a nuumber)
+	1. Profit-generating potential
+	2. Model's Accuracy
+	3. Model's F1-Score
+Thank you, please wait while we evaluate the results.
+==================================================
+
+<----- Summary for model Decision Tree (full) ----->
+
+Confusion Report:
+              precision    recall  f1-score   support
+
+          No       0.88      0.92      0.90      1663
+         Yes       0.68      0.57      0.62       494
+
+    accuracy                           0.84      2157
+   macro avg       0.78      0.74      0.76      2157
+weighted avg       0.83      0.84      0.83      2157
+
+
+Confusion Matrix:
+[[1529  134]
+ [ 213  281]]
+
+Business Summary:
+
+Based on the assumption that each fishing trip costs $2,000 and each successful haul generates $4,000 for fishy & co.
+We developed Decision Tree (full) model for our rain prediction system:
+Accurate Predictions where there are rain: 13.03%, enabling us to avoid making a loss of $562,000
+Inaccurately predicted that there won't be rain: 9.87%, causing us to lose $426,000 
+Profit if model is 100% accurate: $3326,000 
+Actual profit made (after loss): $2632,000 or 79.13% of total potential earnings.
+==================================================
+
+
+<----- Summary for model Decision Tree (balanced-class) ----->
+
+Confusion Report:
+              precision    recall  f1-score   support
+
+          No       0.78      0.76      0.77       494
+         Yes       0.76      0.78      0.77       494
+
+    accuracy                           0.77       988
+   macro avg       0.77      0.77      0.77       988
+weighted avg       0.77      0.77      0.77       988
+
+
+Confusion Matrix:
+[[373 121]
+ [108 386]]
+
+Business Summary:
+
+Based on the assumption that each fishing trip costs $2,000 and each successful haul generates $4,000 for fishy & co.
+We developed Decision Tree (balanced-class) model for our rain prediction system:
+Accurate Predictions where there are rain: 39.07%, enabling us to avoid making a loss of $772,000
+Inaccurately predicted that there won't be rain: 10.93%, causing us to lose $216,000 
+Profit if model is 100% accurate: $988,000 
+Actual profit made (after loss): $530,000 or 53.64% of total potential earnings.
+==================================================
+
+
+<----- Summary for model SVM (full) ----->
+
+Confusion Report:
+              precision    recall  f1-score   support
+
+          No       0.87      0.94      0.90      1663
+         Yes       0.73      0.53      0.62       494
+
+    accuracy                           0.85      2157
+   macro avg       0.80      0.74      0.76      2157
+weighted avg       0.84      0.85      0.84      2157
+
+
+Confusion Matrix:
+[[1565   98]
+ [ 231  263]]
+
+Business Summary:
+
+Based on the assumption that each fishing trip costs $2,000 and each successful haul generates $4,000 for fishy & co.
+We developed SVM (full) model for our rain prediction system:
+Accurate Predictions where there are rain: 12.19%, enabling us to avoid making a loss of $526,000
+Inaccurately predicted that there won't be rain: 10.71%, causing us to lose $462,000 
+Profit if model is 100% accurate: $3326,000 
+Actual profit made (after loss): $2668,000 or 80.22% of total potential earnings.
+==================================================
+
+
+<----- Summary for model SVM (balanced-class) ----->
+
+Confusion Report:
+              precision    recall  f1-score   support
+
+          No       0.80      0.81      0.80       494
+         Yes       0.80      0.80      0.80       494
+
+    accuracy                           0.80       988
+   macro avg       0.80      0.80      0.80       988
+weighted avg       0.80      0.80      0.80       988
+
+
+Confusion Matrix:
+[[398  96]
+ [ 98 396]]
+
+Business Summary:
+
+Based on the assumption that each fishing trip costs $2,000 and each successful haul generates $4,000 for fishy & co.
+We developed SVM (balanced-class) model for our rain prediction system:
+Accurate Predictions where there are rain: 40.08%, enabling us to avoid making a loss of $792,000
+Inaccurately predicted that there won't be rain: 9.92%, causing us to lose $196,000 
+Profit if model is 100% accurate: $988,000 
+Actual profit made (after loss): $600,000 or 60.73% of total potential earnings.
+==================================================
+
+
+<----- Summary for model Logistic Regression (full) ----->
+
+Confusion Report:
+              precision    recall  f1-score   support
+
+          No       0.87      0.94      0.90      1663
+         Yes       0.72      0.54      0.61       494
+
+    accuracy                           0.85      2157
+   macro avg       0.79      0.74      0.76      2157
+weighted avg       0.84      0.85      0.84      2157
+
+
+Confusion Matrix:
+[[1558  105]
+ [ 229  265]]
+
+Business Summary:
+
+Based on the assumption that each fishing trip costs $2,000 and each successful haul generates $4,000 for fishy & co.
+We developed Logistic Regression (full) model for our rain prediction system:
+Accurate Predictions where there are rain: 12.29%, enabling us to avoid making a loss of $530,000
+Inaccurately predicted that there won't be rain: 10.62%, causing us to lose $458,000 
+Profit if model is 100% accurate: $3326,000 
+Actual profit made (after loss): $2658,000 or 79.92% of total potential earnings.
+==================================================
+
+
+<----- Summary for model Logistic Regression (balanced-class) ----->
+
+Confusion Report:
+              precision    recall  f1-score   support
+
+          No       0.80      0.81      0.81       494
+         Yes       0.81      0.80      0.80       494
+
+    accuracy                           0.80       988
+   macro avg       0.80      0.80      0.80       988
+weighted avg       0.80      0.80      0.80       988
+
+
+Confusion Matrix:
+[[399  95]
+ [ 98 396]]
+
+Business Summary:
+
+Based on the assumption that each fishing trip costs $2,000 and each successful haul generates $4,000 for fishy & co.
+We developed Logistic Regression (balanced-class) model for our rain prediction system:
+Accurate Predictions where there are rain: 40.08%, enabling us to avoid making a loss of $792,000
+Inaccurately predicted that there won't be rain: 9.92%, causing us to lose $196,000 
+Profit if model is 100% accurate: $988,000 
+Actual profit made (after loss): $602,000 or 60.93% of total potential earnings.
+==================================================
+
+
+Thank you for your patience, results has been computed.
+
+
+Based on your selection to select the model based on (1) Profit generating potential.
+
+The Fishy & Co. Rain Predictor (Beta) has selected the following model:
+Model: Support Vector Machine
+Earning with test-set: $2668,000
+Profit-to-Potential Ratio: 80.22%
+Model's accuracy: 85.0%
+Model's precision: 84.0%
+Model's recall: 85.0%
+Model's F1-score: 84.0%
+
+==================================================
+# END NOTE
+==================================================
+Please note that this is a beta-test of the Minimal Viable Product (MVP) for Fishy & Co. rain predictor.
+In a fully-developed pipeline with the selection model, the selected model will be pickled for reusability.
+An additional pipeline to take the 'unseen' dataset and generate the predicted labels will be built for the working version.
+
+Thank you,
+Ng Kok Woon (Nicky)
+Fishy & Co, AI Engineer
