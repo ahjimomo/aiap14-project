@@ -2,3 +2,6 @@
 
 # Ignore data folders and .db files within
 data/
+
+# Ignore scripts generated from VS code folder
+mlp_pipeline/
