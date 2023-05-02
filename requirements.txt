@@ -63,7 +63,6 @@ langcodes==3.3.0
 libclang==13.0.0
 llvmlite==0.39.1
 lxml==4.9.1
-mariadb==1.1.0b2
 Markdown==3.3.6
 MarkupSafe==2.0.1
 matplotlib==3.5.1
@@ -105,7 +104,6 @@ pydantic==1.10.4
 Pygments==2.10.0
 pynndescent==0.5.8
 pyparsing==3.0.6
-PyPDF2==3.0.1
 pypiwin32==223
 pyquery==1.4.3
 pyrsistent==0.18.0
@@ -130,7 +128,6 @@ setuptools==58.1.0
 six==1.16.0
 smart-open==6.2.0
 sniffio==1.2.0
-snscrape==0.4.3.20220106
 soupsieve==2.3.2.post1
 spacy==3.4.4
 spacy-legacy==3.0.11
@@ -147,18 +144,13 @@ tensorflow-io-gcs-filesystem==0.24.0
 termcolor==1.1.0
 terminado==0.12.1
 testpath==0.5.0
-tf-estimator-nightly==2.8.0.dev2021122109
 thinc==8.1.6
 threadpoolctl==3.0.0
 tornado==6.1
 tqdm==4.64.0
 traitlets==5.1.1
-tweepy==4.10.0
-tweet-preprocessor==0.6.0
 typer==0.7.0
 typing_extensions==4.4.0
-umap==0.1.1
-umap-learn==0.5.3
 update==0.0.1
 urllib3==1.26.7
 wasabi==0.10.1
@@ -168,6 +160,4 @@ websocket-client==1.2.3
 Werkzeug==2.0.2
 wheel==0.37.1
 widgetsnbextension==3.5.2
-wordcloud==1.8.2.2
 wrapt==1.13.3
-xgboost==1.6.2
