@@ -152,7 +152,7 @@ With the findings from the EDA, we can summarize our data pre-processing and pre
 # Machine Learning Pipeline (MLP)
 ## 3A. MLP Overview Flow
 The following flow is a snippet of how the program iteracts with the user:
-![alt text](./images/aiap14_mlp_pipeline_flow.png.png "MLP Pipeline Flow Overview")
+![alt text](./images/aiap14_mlp_pipeline_flow.png "MLP Pipeline Flow Overview")
 
 _A sample output of the full `mlp_pipeline.py` program run can be found in the [sample_output_log.txt document]("C:\Users\User\Desktop\Nicky\aiap14-ng-kok-woon-685E\sample_output_log.txt")_
 
