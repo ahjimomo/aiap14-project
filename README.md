@@ -170,11 +170,31 @@ For the project, we wanted to explore different variations of algorithms to iden
 + Logistic Regression: Statistical-based approach (probability)
 + ~Naive Bayes Classifier~: Unable to use the model as we are using `robust scaler` which reduces the impact of outliers but may introduce negative values.
 
-> Unfortunately, due to the time constraint for the project, I did not perform further hyperparameters-turning
-> and would like to test out other emsemble models in the future on this dataset.
+> Unfortunately, due to the time constraint with work, I did not perform further hyperparameters-turning
+> and would like to test out cross-validation and other emsemble models in the future on this dataset.
 
 ## 3E. Evaluation of models
+The models are evaluated based on the 4 common performance metrics for a classification task, with the inclusion of an additional measurement based on the assumed `cost per trip` and `gross revenue per trip`. Below is a generic description of the measurements based on our problem statement:
 
+| **Measurement** | **Description** | **Remark** |
+| ---  | :-- | :-- |
+| Accuracy | Computed based on the correct classification of `RainTomorrow` on testing dataset of correct predictions over total predictions | |
+| Precision | The rate where we predicted correctly that it will rain the next day out of the days that it actually rained | This affects our revenue bottom-line as we want to avoid heading out to fish if it actually rained since it will cost us |
+| Recall (Sensitivity) | Based on all the `predictions: 'Yes'` from our model, the rate where we correctly identified that it's correct | Opportunity cost when we have `False Negative` since we do not go for fishing when it actually did not rain the next day |
+| F1-Score | The harmonic mean between precision and recall, a easier way to select the model with a balance | |
+| `New:` Profit-to-Potential Ratio | Since this is a business use-case designed for business users, we created a measurement based on `% of (profit from our model / total potential of 100% accuracy)` | This enable non-technical user to easily reference the potential amount of earnings they can generated based on the history dataset |
+
+To help our users with their preferred model selection, a summarized output will be printed for the ease of their reference:
+![alt text](./images/aiap14_mlp_pipeline_summary_example.png "MLP Pipeline UI Summary sample")
+
+> More measurements can be applied such as use of `Precision-Recall Curve (PRC)` and `K-fold Cross Validation` in the future
+
+**Note: For our problem statement, `accuracy + precision` may actually be a more important measurement than `recall` as heading out to fish when it rains actually hurts the company's revenue while not heading out when it's not raining incur opportunity cost but does not actually impact the revenue directly.** 
+
+# Learnings and Reflections
+The AIAP 14 Batch Assessment Test has been a challenging yet fruitful test. I was able to learn a great deal on building pipelines and gain the statistical insights behind each algorithms. The requirements such as having a executable shell bash script has also pushed me to try and experiment with programs I never had seen before, and the time limitation of 5-days was challenging for a project. 
+
+I hope to further improve my skills and gain more knowledge and become a expert in the ML/AI field, providing value both in decisions and build end-to-end applications through AIAP.
 
 ### END - Thank you
 
