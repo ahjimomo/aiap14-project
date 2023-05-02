@@ -19,8 +19,15 @@ The future iterations of the project would require the application to take in "u
 to compute the predicted labels in an preferred output by the audience for their actual utilization. 
 
 ## 1B. Task Summary
-- [x] Write the press release
-- [ ] 2nd Task
+- [x] Use GitHub for CI/CD and version-control with private repository for project
+- [x] Adding of `AISG-AIAP` as collaborator 
+- [x] Contains executable shell-bash script (.sh)[^1] to run `mlp_pipeline.py`
+- [x] Exploratory Data Analysis (EDA) in python notebook (.ipynb)
+- [x] End-to-end Machine Learning Pipeline (MLP) stored in src folder (.py)
+- [x] readme.md to describe walkthrough of project
+- [x] File Structure[^2]
+- [x] GitHub project repository should not contain dataset (.db)  
+- [] Complete submission form on google docs
 
 ## 1C. File Structure
 The file structure of the project is extracted via Windows cmd with `tree /a /f > output.doc`
@@ -28,10 +35,10 @@ The file structure of the project is extracted via Windows cmd with `tree /a /f 
 |   .DS_Store
 |   .gitignore
 |   eda.ipynb
-|   output.doc
 |   README.md
 |   requirements.txt
 |   run.sh
+|   sample_output_log.txt
 |   
 +---.github
 |   |   .DS_Store
@@ -42,13 +49,16 @@ The file structure of the project is extracted via Windows cmd with `tree /a /f 
 +---.ipynb_checkpoints
 |       eda-checkpoint.ipynb
 |       
-+---data
-|       fishing.db
+|       
++---images
+|       aiap14_mlp_pipeline_flow.png
+|       aiap14_mlp_pipeline_summary_example.png
 |       
 |           
 \---src
         mlp_pipeline.py
         preprocessor.py
+
 ```
 
 ## 1D. How to execute
