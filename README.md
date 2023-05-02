@@ -26,7 +26,8 @@ to compute the predicted labels in an preferred output by the audience for their
 - [x] End-to-end Machine Learning Pipeline (MLP) stored in src folder (.py)
 - [x] readme.md to describe walkthrough of project
 - [x] File Structure[^2]
-- [x] GitHub project repository should not contain dataset (.db) [^3] 
+- [x] GitHub project repository should not contain dataset (.db) [^3]
+- [x] Inclusion of `requirements.txt` [^4] 
 - [x] Complete submission form on google docs
 
 ## 1C. File Structure
@@ -232,3 +233,4 @@ I hope to further improve my skills and gain more knowledge and become a expert 
 [^1]: I am not too familar with creation of bash script, and have built it based on online research to the best of my knowledge. From the test pipeline on GitHub during push, the script seems to be running but unable to connect to `../data/fishing.db` as it has been ignored.
 [^2]: The file structure of the project is extracted via Windows cmd with `tree /a /f > output.doc`
 [^3]: Use of `.gitignore` text document to ignore folders that should not be pushed into GitHub repository
+[^4]: Use of `pip.freeze()` to capture the requirements but I should have created a virtual environment as part of my learnings in the future as the `requirements.txt` seems to contain all other libraries that I have installed in my system. 
