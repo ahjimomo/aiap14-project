@@ -5,7 +5,7 @@ Email: kokwoon.ng@gmail.com
 # Project Overview
 ## 1A. Executive Summary
 > The objective of the project is to evaluate and identify Machine Learning (ML) models that can help
-> fishy & co. to predict if there will be rain the next day. 
+> fishy & co. to predict if there will be rain the next day to maximize profit from the business.
 
 Using the data provided by fishy & co, we will first perform a general Exploratory Data Analysis (EDA) 
 to gain a better understanding of the weather dataset, before we build a end-to-end Machine Learning Pipeline (MLP)
@@ -26,11 +26,12 @@ to compute the predicted labels in an preferred output by the audience for their
 - [x] End-to-end Machine Learning Pipeline (MLP) stored in src folder (.py)
 - [x] readme.md to describe walkthrough of project
 - [x] File Structure[^2]
-- [x] GitHub project repository should not contain dataset (.db)  
-- [] Complete submission form on google docs
+- [x] GitHub project repository should not contain dataset (.db) [^3] 
+- [x] Complete submission form on google docs
 
 ## 1C. File Structure
-The file structure of the project is extracted via Windows cmd with `tree /a /f > output.doc`
+Defining the file structure of the project for ease of reference:
+
 ```
 |   .DS_Store
 |   .gitignore
@@ -84,8 +85,6 @@ git clone https://github.com/ahjimomo/aiap14-ng-kok-woon-685E.git
 bash run.sh
 ```
 A sample output of the full `mlp_pipeline.py` program run can be found in the [sample_output_log.txt document]("./sample_output_log.txt").
-
-[^1]: I am unable to find the right way to run the run.sh executable script, above is based on online research to the best of my knowledge.
 
 # Exploratory Data Analysis (EDA)
 ## 2A. EDA Overview
@@ -229,4 +228,7 @@ The AIAP 14 Batch Assessment Test has been a challenging yet fruitful test. I wa
 
 I hope to further improve my skills and gain more knowledge and become a expert in the ML/AI field, providing value both in decisions and build end-to-end applications through AIAP.
 
-### END - Thank you
+### THANK YOU - END
+[^1]: I am not too familar with creation of bash script, and have built it based on online research to the best of my knowledge. From the test pipeline on GitHub during push, the script seems to be running but unable to connect to `../data/fishing.db` as it has been ignored.
+[^2]: The file structure of the project is extracted via Windows cmd with `tree /a /f > output.doc`
+[^3]: Use of `.gitignore` text document to ignore folders that should not be pushed into GitHub repository
