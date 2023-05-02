@@ -73,7 +73,7 @@ git clone https://github.com/ahjimomo/aiap14-ng-kok-woon-685E.git
 # run the sh script in terminal
 bash run.sh
 ```
-A sample output of the full `mlp_pipeline.py` program run can be found in the [sample_output_log.txt document]("C:\Users\User\Desktop\Nicky\aiap14-ng-kok-woon-685E\sample_output_log.txt").
+A sample output of the full `mlp_pipeline.py` program run can be found in the [sample_output_log.txt document]("./sample_output_log.txt").
 
 [^1]: I am unable to find the right way to run the run.sh executable script, above is based on online research to the best of my knowledge.
 
@@ -98,7 +98,7 @@ feature-engineering that may be needed.
 *   What are the features that we should use?
 
 ## 2B. Findings
-Based on our set questions, we performed our EDA in the [JupyterLab Notebook]("C:\Users\User\Desktop\Nicky\aiap14-ng-kok-woon-685E\eda.ipynb"), and
+Based on our set questions, we performed our EDA in the [JupyterLab Notebook]("./eda.ipynb"), and
 we can present the following findings:
 
 | **Item** | **Description** | **Remark** |
@@ -110,8 +110,8 @@ we can present the following findings:
 | Feature: Wind Direction | The unique values for `WindGustDir`, `WindDir9am` and `WindDir3pm` seems correct based on [Windy.app](https://windy.app/blog/what-is-wind-direction.html#:~:text=292.5%C2%B0%20%E2%80%94%20west%2Dnorthwest%20wind%20(WNW)) | |
 | Distribution of Class | Our dataset has a [moderate degree of imbalance](https://developers.google.com/machine-learning/data-prep/construct/sampling-splitting/imbalanced-data) with the minority class `Yes` sitting at 1 - 20 % of the dataset | Test models with downsampled majority class vs. full dataset |
 | Feature: Sunshine | Based on the business definition, `Sunshine` represents hours in a day and should be in the range of (0, 24] yet there are neg- values identified | Convert all negative to pos+ values |
-| Feature+: month | From our `Date` feature, we can extract the `month` represented in the range of (0, 12] which may be useful in adding information to our model | |
-| Feature+: predict_accurate | Using the `RainToday` from the row of `Date +1` grouped by locations, we can verify if our current row's `RainTomorrow` is accurate | |
+| Feature+: month | From our `Date` feature, we can extract the `month` represented in the range of (0, 12] which may be useful in adding information to our model | Assumption that date might be a factor to weather |
+| Feature+: predict_accurate | Using the `RainToday` from the row of `Date +1` grouped by locations, we can verify if our current row's `RainTomorrow` is accurate | Assumption that data may be incorrect |
 | Feature-Selection: Numerical | Applying Pearson's correlation test with `sns.heatmap()`, we can identify the numerical features using the threshold of +0.4/-0.4 | `[Sunshine, Humidity3pm, Cloud3pm]` |
 | Feature-Selection: Categorical | Applying Uncertainty Coeffeicient test (Thiel's U), we can identify the categorical features using the threshold of +0.4/-0.4 | `[Pressure9am, Pressure3pm, WindDir9am, WindDir3pm]` |
 
@@ -154,7 +154,7 @@ With the findings from the EDA, we can summarize our data pre-processing and pre
 The following flow is a snippet of how the program iteracts with the user:
 ![alt text](./images/aiap14_mlp_pipeline_flow.png "MLP Pipeline Flow Overview")
 
-_A sample output of the full `mlp_pipeline.py` program run can be found in the [sample_output_log.txt document]("C:\Users\User\Desktop\Nicky\aiap14-ng-kok-woon-685E\sample_output_log.txt")_
+_A sample output of the full `mlp_pipeline.py` program run can be found in the [sample_output_log.txt document]("./sample_output_log.txt")_
 
 ## 3B. Data Processing
 A summary of the how the features in the dataset are processed
@@ -162,11 +162,19 @@ A summary of the how the features in the dataset are processed
 | ---  | :-- | :-- |
 
 ## 3D. Choice of models
-For the project, we wanted to explore different variations of algorithms to identify the better models for our problem:
+For the project, we wanted to explore different variations of algorithms to identify the better models for our problem.
 
+**We decided to go with:**
++ Decision Tree: Rule-based approach (probability)
++ Support Vector Machine: Distance-based approach (Superplane & margin)
++ Logistic Regression: Statistical-based approach (probability)
++ ~Naive Bayes Classifier~: Unable to use the model as we are using `robust scaler` which reduces the impact of outliers but may introduce negative values.
+
+> Unfortunately, due to the time constraint for the project, I did not perform further hyperparameters-turning
+> and would like to test out other emsemble models in the future on this dataset.
 
 ## 3E. Evaluation of models
 
 
-# Reflection
+### END - Thank you
 
