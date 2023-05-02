@@ -157,14 +157,15 @@ The following flow is a snippet of how the program iteracts with the user:
 _A sample output of the full `mlp_pipeline.py` program run can be found in the [sample_output_log.txt document]("./sample_output_log.txt")_
 
 ## 3B. MLP Program Design
-> For our project, we have **two (2) scripts**, namely `preprocessor.py` and `mlp_pipeline.py`. The `preprocessor.py` is meant to contain supporting functions
->that is utitlized in the main `mlp_pipeline.py` so we can ensure readibility of our script for other developers/engineers while conforming to good
-> developer practices such as _Don't Repeat Yourself (DRY)_ and other _SOLID principles_. 
+For our project, we have **two (2) scripts**, namely `preprocessor.py` and `mlp_pipeline.py`. The `preprocessor.py` is meant to contain supporting functions
+that is utitlized in the main `mlp_pipeline.py`.
+> This design is such that we can maximize readibility of our script for other developers/engineers while conforming to good
+> developer practices such as _Don't Repeat Yourself (DRY)_ and other _SOLID principles_ for the project.
 + **preprocessor.py**: Contains supporting functions for printing, pre-processing, cleaning and evaluations
 + **mlp_pipeline.py**: Main script that calls `preprocessor.py`, import data, get users' input, fit models and generate output. 
 
 **A summary of the how the features in the dataset are processed:**
-| **s.no** | **Type** | **Description** | **Remark** |
+| **Step** | **Type** | **Description** | **Remark** |
 | :--  | :-- | :-- | :-- |
 | 1 | Data Collection | Import libraries and read data from `./fishing.db` with `SQLite3` | `random_seed = 42` for reproducibility |
 | 2 | Data Cleaning | Remove duplications of `Date`-`Location` pairs | Removes noise and unecessary data | 1,182 duplicates |
@@ -172,9 +173,15 @@ _A sample output of the full `mlp_pipeline.py` program run can be found in the [
 | 4 | Data Cleaning | applying `abs()` function on `Sunshine` to correct all neg- values to pos+, within range of (0 - 24] | Assumption that business terms means #hours in a day |
 | 5 | Data Cleaning | Drop all records with empty columns with `pd.dropna()` | |
 | 6 | Data Preprocessing | Selecting subset of original dataset based on features selection from EDA | `['Sunshine', 'Humidity3pm', 'Cloud3pm', 'Pressure9am', 'Pressure3pm', 'WindDir9am', 'WindDir3pm', 'RainTomorrow']` |
-| 7 | Data Engineering | Standardizing the 3-levels of pressure for `Pressure9am` and `Pressure3pm` features before performing label-encoding | 32 to 3, `[low -> med -> high]` |
+| 7 | Data Engineering | Standardizing the 3-levels of pressure for `Pressure9am` and `Pressure3pm` features before performing label-encoding | 32 to 3 unique values, `[low -> med -> high]` |
 | 8 | Data Engineering | Preparing `secondary dataset` to balance distribution between `RainTomorrow` classes by downsampling the majority class | |
-| 9 | Data Preprocessing | Using `sklearn.preprocessing.
+| 9 | Data Preprocessing | Using `sklearn.model_selection.train_test_split`, we perform a `80-20` split with stratification and shuffling on both datasets | |
+| 10 | Data Engineering | Performing `sklearn.preprocessing.robustScaler()` to all numerical features on both training and testing dataset | Choice of scaler() since we did not preprocess the outliers |
+| 11 | Data Enginnering | Performing `category_encoders.BinaryEncoder()` on nominal categorical features | Use of binary encoder as there is large number of unique values, to avoid large sparse dataset which could affect the performance |
+| 12 | User Input | Get user input for `cost` for each fishing trip, `revenue` before cost for each fishing trip, and `criterion` on preference to select model | `cost`: integer<br>`revenue`: integer<br>`criterion`: integer (choice of 1 - 3) |
+| 13 | Model Fitting & Evaluation | Fit models for `decision tree`, `support vector machine` and `logistic regression` with parameters for each dataset | testing performance are also extracted, with `profit-to-potential ratio` tabulated |
+| 14 | Model Selection | Compare between performances from `class-balanced dataset` and `full dataset` based on average f-1 score to select models to use | Step 8 from above |
+| 15 | Model Selection | Generate output and summary of selected models with `earnings $` to help non-technical understanding the output | End of program |
 
 
 ## 3D. Choice of models
@@ -213,4 +220,3 @@ The AIAP 14 Batch Assessment Test has been a challenging yet fruitful test. I wa
 I hope to further improve my skills and gain more knowledge and become a expert in the ML/AI field, providing value both in decisions and build end-to-end applications through AIAP.
 
 ### END - Thank you
-
