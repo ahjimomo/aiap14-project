@@ -102,7 +102,7 @@ Based on our set questions, we performed our EDA in the [JupyterLab Notebook](".
 we can present the following findings:
 
 | **Item** | **Description** | **Remark** |
-| ---  | :-- | :-- |
+| :--  | :-- | :-- |
 | Size of Dataset | 12,997 rows with 21 columns | pre-processed |
 | Key identifiers | `Date`-`Location` pair | |
 | Duplicates | 1,182 based on our `Date`-`Location` pair | To keep only 1-record each |
@@ -150,16 +150,32 @@ With the findings from the EDA, we can summarize our data pre-processing and pre
 *   From the EDA, we can see that the features that we will keep for our project includes `Sunshine`, `Humidity3pm`, `Cloud3pm`, `Pressure9am (Encoding)`, `Pressure3pm (Encoding)`, `WindDir9am (Encoding)`, `WindDir3pm (Encoding)` and `RainTomorrow (Target Class)` to tackle the challenge as a *binary classification problem*
 
 # Machine Learning Pipeline (MLP)
-## 3A. MLP Overview Flow
+## 3A. Program Flow
 The following flow is a snippet of how the program iteracts with the user:
 ![alt text](./images/aiap14_mlp_pipeline_flow.png "MLP Pipeline Flow Overview")
 
 _A sample output of the full `mlp_pipeline.py` program run can be found in the [sample_output_log.txt document]("./sample_output_log.txt")_
 
-## 3B. Data Processing
-A summary of the how the features in the dataset are processed
-| **Stage** | **Description** | **Remark** |
-| ---  | :-- | :-- |
+## 3B. MLP Program Design
+> For our project, we have **two (2) scripts**, namely `preprocessor.py` and `mlp_pipeline.py`. The `preprocessor.py` is meant to contain supporting functions
+>that is utitlized in the main `mlp_pipeline.py` so we can ensure readibility of our script for other developers/engineers while conforming to good
+> developer practices such as _Don't Repeat Yourself (DRY)_ and other _SOLID principles_. 
++ **preprocessor.py**: Contains supporting functions for printing, pre-processing, cleaning and evaluations
++ **mlp_pipeline.py**: Main script that calls `preprocessor.py`, import data, get users' input, fit models and generate output. 
+
+**A summary of the how the features in the dataset are processed:**
+| **s.no** | **Type** | **Description** | **Remark** |
+| :--  | :-- | :-- | :-- |
+| 1 | Data Collection | Import libraries and read data from `./fishing.db` with `SQLite3` | `random_seed = 42` for reproducibility |
+| 2 | Data Cleaning | Remove duplications of `Date`-`Location` pairs | Removes noise and unecessary data | 1,182 duplicates |
+| 3 | Data Engineering | Creating `predict_accurate` based on `RainToday` from record's `Date+1` record to verify accuracy, remove those that are wrong/cannot be verified | |
+| 4 | Data Cleaning | applying `abs()` function on `Sunshine` to correct all neg- values to pos+, within range of (0 - 24] | Assumption that business terms means #hours in a day |
+| 5 | Data Cleaning | Drop all records with empty columns with `pd.dropna()` | |
+| 6 | Data Preprocessing | Selecting subset of original dataset based on features selection from EDA | `['Sunshine', 'Humidity3pm', 'Cloud3pm', 'Pressure9am', 'Pressure3pm', 'WindDir9am', 'WindDir3pm', 'RainTomorrow']` |
+| 7 | Data Engineering | Standardizing the 3-levels of pressure for `Pressure9am` and `Pressure3pm` features before performing label-encoding | 32 to 3, `[low -> med -> high]` |
+| 8 | Data Engineering | Preparing `secondary dataset` to balance distribution between `RainTomorrow` classes by downsampling the majority class | |
+| 9 | Data Preprocessing | Using `sklearn.preprocessing.
+
 
 ## 3D. Choice of models
 For the project, we wanted to explore different variations of algorithms to identify the better models for our problem.
@@ -177,7 +193,7 @@ For the project, we wanted to explore different variations of algorithms to iden
 The models are evaluated based on the 4 common performance metrics for a classification task, with the inclusion of an additional measurement based on the assumed `cost per trip` and `gross revenue per trip`. Below is a generic description of the measurements based on our problem statement:
 
 | **Measurement** | **Description** | **Remark** |
-| ---  | :-- | :-- |
+| :--  | :-- | :-- |
 | Accuracy | Computed based on the correct classification of `RainTomorrow` on testing dataset of correct predictions over total predictions | |
 | Precision | The rate where we predicted correctly that it will rain the next day out of the days that it actually rained | This affects our revenue bottom-line as we want to avoid heading out to fish if it actually rained since it will cost us |
 | Recall (Sensitivity) | Based on all the `predictions: 'Yes'` from our model, the rate where we correctly identified that it's correct | Opportunity cost when we have `False Negative` since we do not go for fishing when it actually did not rain the next day |
