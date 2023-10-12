@@ -1,6 +1,5 @@
 # AIAP Batch 14 Technical Assessment
-Name: Ng Kok Woon<br>
-Email: kokwoon.ng@gmail.com
+Name: Nicky Ng<br>
 
 # Project Overview
 ## 1A. Executive Summary
